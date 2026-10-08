@@ -1,8 +1,6 @@
 # AA2 Server DHCP amb Kea-Maxim Slobodyan
 
 
----
-
 ##  Desenvolupament de la Pràctica Pas a Pas
 
 
