@@ -73,10 +73,10 @@ network:
     enp0s8:
       dhcp4: false
       addresses:
-        - 192.169.22.1/24
+        - 192.168.22.1/24
 ```
 
-Apliquem els canvis i verifiquem que la interfície `enp0s8` ha agafat la IP estàtica `192.169.16.1/24`:
+Apliquem els canvis i verifiquem que la interfície `enp0s8` ha agafat la IP estàtica `192.168.22.1/24`:
 
 ```bash
 sudo netplan generate
@@ -116,8 +116,6 @@ sudo nano /etc/kea/kea-dhcp4.conf
 
 ![](/img/Captura%20de%20pantalla%202026-10-08%20175556.png)
 
-**Configuració aplicada a `kea-dhcp4.conf`:**
-
 ---
 
 ### 4. Validació, arrencada i comprovació de logs del servei
@@ -140,7 +138,7 @@ sudo systemctl status kea-dhcp4-server --no-pager
 
 ![](/img/Captura%20de%20pantalla%202026-10-08%20175656.png)
 
-Per últim, comprovem els logs del servei amb `journalctl` per verificar que el dimoni està escoltant a la interfície `enp0s8` i ha carregat la subxarxa `192.169.16.0/24`:
+Per últim, comprovem els logs del servei amb `journalctl` per verificar que el dimoni està escoltant a la interfície `enp0s8` i ha carregat la subxarxa `192.168.22.0/24`:
 
 ```bash
 sudo journalctl -u kea-dhcp4-server -b -e --no-pager -n 16
